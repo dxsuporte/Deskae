@@ -1,0 +1,23 @@
+{
+  "name": "deskae",
+  "productName": "Deskae",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Desktop APP to connect to server",
+  "main": "main.js",
+  "author": "DXSuporte - Danilo Xavier",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "package-win32": "electron-packager . Deskae --overwrite --platform=win32 --arch=ia32 --prune=false --out=build-win --icon public/favicon.ico --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Deskae\"",
+    "package-win64": "electron-packager . Deskae --overwrite --platform=win32 --arch=x64 --prune=false --out=build-win --icon public/favicon.ico --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Deskae\"",
+    "build:win": "npm run package-win32 && npm run package-win64"
+  },
+  "devDependencies": {
+    "electron": "^14.0.0",
+    "electron-packager": "^15.3.0"
+  },
+  "dependencies": {
+    "link-check": "^5.0.0"
+  }
+}
