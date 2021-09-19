@@ -4,11 +4,11 @@ const Path = require('path')
 const LinkCheck = require('link-check')
 const Config = require(Path.join(__dirname, 'config.js'))
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    minWidth: 800,
-    minHeight: 600,
+    minWidth: 1024,
+    minHeight: 768,
     title: 'Deskae',
     icon: Path.join(__dirname, './', 'public', './favicon.png'),
     webPreferences: {
@@ -19,13 +19,13 @@ function createWindow () {
   //Lemove menu bar from window 
   mainWindow.setMenu(null)
   // and load the index.html of the app.
-  LinkCheck('http://'+ Config.host + ':' + Config.port, function (err, result) {
+  LinkCheck('http://' + Config.host + ':' + Config.port, function (err, result) {
     if (result.status == 'alive') {
-        mainWindow.loadURL(result.link)
+      mainWindow.loadURL(result.link)
     } else {
       mainWindow.loadFile('index.html')
     }
-})
+  })
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
