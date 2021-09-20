@@ -7,8 +7,11 @@ const Config = require(Path.join(__dirname, 'config.js'))
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    minWidth: 1024,
-    minHeight: 768,
+    width: 1024,
+    height: 768,
+    minWidth: 800,
+    minHeight: 600,
+    center: true,
     title: 'Deskae',
     icon: Path.join(__dirname, './', 'public', './favicon.png'),
     webPreferences: {
@@ -16,6 +19,8 @@ function createWindow() {
       preload: Path.join(__dirname, 'preload.js')
     }
   })
+  //start maximize window 
+  mainWindow.maximize()
   //Lemove menu bar from window 
   mainWindow.setMenu(null)
   // and load the index.html of the app.
