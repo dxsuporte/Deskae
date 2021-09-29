@@ -1,5 +1,7 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
+//Lemove menu bar from window
+Menu.setApplicationMenu(false)
 const Path = require('path')
 const LinkCheck = require('link-check')
 const Config = require(Path.join(__dirname, 'config.js'))
@@ -19,10 +21,8 @@ function createWindow() {
       preload: Path.join(__dirname, 'preload.js')
     }
   })
-  //start maximize window 
+  //start maximize window
   mainWindow.maximize()
-  //Lemove menu bar from window 
-  mainWindow.setMenu(null)
   // and load the index.html of the app.
   LinkCheck('http://' + Config.host + ':' + Config.port, function (err, result) {
     if (result.status == 'alive') {
